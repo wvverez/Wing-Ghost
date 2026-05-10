@@ -9,7 +9,7 @@
 
 <div align="center">
   <h1>Wing Ghost</h1>
-  <img width="736" height="736" alt="image" src="https://github.com/user-attachments/assets/f1c947e3-30c0-4f06-b022-654a287a6749" />
+  <img width="1254" height="1254" alt="Mariposa" src="https://github.com/user-attachments/assets/32ff7862-927f-4fd2-aa93-1adb027a0cf2" />
   <p><strong>Secure Log Deleter</strong></p>
   <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Active">
   <img src="https://img.shields.io/badge/Purpose-Privacy%20%7C%20Security-important?style=for-the-badge" alt="Purpose">
