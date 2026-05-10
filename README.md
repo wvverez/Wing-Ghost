@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS-blue)](https://www.linux.org/)
 [![Bash](https://img.shields.io/badge/shell-Bash-4EAA25?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
-[![Security](https://img.shields.io/badge/security-forensic%20tool-red)](https://github.com/wvverez/Wing-Ghost)
+[![Security](https://img.shields.io/badge/Log-Deleter%20tool-red)](https://github.com/wvverez/Wing-Ghost)
 [![Version](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/wvverez/Wing-Ghost)
 [![Code size](https://img.shields.io/github/languages/code-size/wvverez/Wing-Ghost)](https://github.com/wvverez/Wing-Ghost)
 
