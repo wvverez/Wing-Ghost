@@ -9,6 +9,7 @@
 
 <div align="center">
   <h1>Wing Ghost</h1>
+  <img width="736" height="736" alt="image" src="https://github.com/user-attachments/assets/f1c947e3-30c0-4f06-b022-654a287a6749" />
   <p><strong>Secure Log Deleter</strong></p>
   <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Active">
   <img src="https://img.shields.io/badge/Purpose-Privacy%20%7C%20Security-important?style=for-the-badge" alt="Purpose">
