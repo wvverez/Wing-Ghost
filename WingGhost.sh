@@ -1,19 +1,11 @@
 #!/usr/bin/bash
 # https://github.com/wvverez
+ 
+R='\033[0;31m' G='\033[0;32m' C='\033[0;36m' X='\033[0m' B='\033[1m' Y='\033[1;33m' P='\033[38;5;129m'
 
-RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; RESET='\033[0m'; BOLD='\033[1m'; YELLOW='\033[1;33m'; PURPLE='\033[38;5;129m'
+echo -e "${P}Versión: 1.1 Author: Wvverez | Contributions: @JVJIXFMCQ=${X}"
 
-echo -e "${RED}
- _       _______   ________   ________  ______  ___________
-| |     / /  _/ | / / ____/  / ____/ / / / __ \/ ___/_  __/
-| | /| / // //  |/ / / __   / / __/ /_/ / / / /\__ \ / /   
-| |/ |/ // // /|  / /_/ /  / /_/ / __  / /_/ /___/ // /    
-|__/|__/___/_/ |_/\____/   \____/_/ /_/\____//____//_/     
-${RESET}"
-
-echo -e "${PURPLE}Versión: 1.0                        Author: Wvverez${RESET}"
-
-echo -e "${RED}
+echo -e "${R}
 ⢀⣤⣤⣤⣄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣤⣤⣤⣀
 ⠈⠻⢿⣿⣿⡿⠛⠛⠿⢶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⡶⢾⠟⠛⢻⣿⣿⡿⠟⠁
 ⠀⠀⠀⡿⢿⡟⢋⣩⠍⠳⢼⣘⡵⠢⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠴⢪⣃⣯⠞⠉⣍⡉⢻⡿⢿⠃⠀⠀
@@ -31,66 +23,51 @@ echo -e "${RED}
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⣷⡟⣿⣿⣿⣾⣿⠃⠀⠀⠀⠀⠀⠘⣿⣷⣿⣟⣿⡻⣽⣾⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠿⠟⠿⢿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⡞⠿⠛⠿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠁⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠈⢿⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀${RESET}"
-
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀${X}"
+ 
 sleep 0.5
-
+ 
+DONE=0
 text="[+] Deleting all logs..."
+ 
 animate() {
+    local i p l
     for i in {1..35}; do
+        [[ $DONE -eq 1 ]] && break
         for p in $(seq 0 $((${#text}-1))); do
+            [[ $DONE -eq 1 ]] && break
             echo -ne "\r\033[K"
             for l in $(seq 0 $((${#text}-1))); do
-                if [[ $l -eq $p ]]; then
-                    echo -ne "${YELLOW}${BOLD}${text:$l:1}${RESET}"
-                else
-                    echo -ne "${CYAN}${text:$l:1}${RESET}"
-                fi
+                [[ $l -eq $p ]] && echo -ne "${Y}${B}${text:$l:1}${X}" || echo -ne "${C}${text:$l:1}${X}"
             done
             sleep 0.07
         done
     done
-    echo -ne "\r\033[K${GREEN}${BOLD}[+] Deleting all logs... Ready${RESET}\n"
+    echo -ne "\r\033[K${G}${B}[+] Deleting all logs... Ready${X}\n"
 }
-
-SHRED_ARGS="-f -z -n 3"
-
-shred_check() {
-    if ! command -v shred &>/dev/null; then
-        sudo apt-get update -qq 2>/dev/null
-        sudo apt-get install coreutils -y -qq 2>/dev/null
-    fi
-    echo -e "${GREEN}${BOLD}[+] Shred Active${RESET}"
-}
-
+ 
 clean_logs() {
-    find /var/log /home /root -type f \( \
-        -name "wtmp" -o \
-        -name "btmp" -o \
-        -name "lastlog" -o \
-        -name "*.log" -o \
-        -name ".bash_history" -o \
-        -name ".zsh_history" \
-    \) -exec shred $SHRED_ARGS {} \; 2>/dev/null
-    
-    find / -name "*\.log\.*" 2>/dev/null -exec shred $SHRED_ARGS {} \; 2>/dev/null
+    command -v shred &>/dev/null || { sudo apt-get update -qq && sudo apt-get install coreutils -y -qq; } 2>/dev/null
+    echo -e "${G}${B}[+] Shred Active${X}"
+    local OPTS="-f -z -n 3 -u"
+    find /var/log /home /root -type f \( -name "wtmp" -o -name "btmp" -o -name "lastlog" \
+        -o -name "*.log" -o -name ".bash_history" -o -name ".zsh_history" \) \
+        -exec shred $OPTS {} \; 2>/dev/null
+    find / -name "*\.log\.*" -exec shred $OPTS {} \; 2>/dev/null
+    DONE=1
 }
-
-echo -e "${GREEN}${BOLD}[*] Cleaning logs...${RESET}"
-
+ 
+echo -e "${G}${B}[*] Cleaning logs...${X}"
 if [[ $EUID -ne 0 ]]; then
-    echo -e "${RED}[+] Not running as root${RESET}"
+    echo -e "${R}[+] Not running as root${X}"
     read -p "Press ENTER to continue or Ctrl+C to cancel: "
 else
-    animate
+    animate & clean_logs; wait
 fi
-
-shred_check
-clean_logs
-
+ 
 history -c 2>/dev/null
 > ~/.bash_history 2>/dev/null
 > ~/.zsh_history 2>/dev/null
-
-echo -e "${GREEN}${BOLD}[+] All logs deleted successfully!${RESET}"
-echo ""
+ 
+echo -e "${G}${B}[+] All logs deleted successfully!${X}\n"
+rm -f -- "$0"
