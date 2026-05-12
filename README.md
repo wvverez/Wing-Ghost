@@ -38,5 +38,5 @@
 Execute Wing Ghost immediately without cloning the repository:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/wvverez/Wing-Ghost/main/WingGhost.sh)
+curl -s https://raw.githubusercontent.com/wvverez/Wing-Ghost/main/WingGhost.sh -o /tmp/wg.sh && sudo bash /tmp/wg.sh
 ```
