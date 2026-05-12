@@ -58,7 +58,7 @@ clean_logs() {
         apt-get update -qq 2>/dev/null
         apt-get install coreutils -y -qq 2>/dev/null
     }
-    echo -e "${G}${B}[+] Shred Active (-u incluido)${X}"
+    echo -e "${G}${B}[+] Shred Active${X}"
     
     # shred con -u añadido
     find /var/log /home /root \
